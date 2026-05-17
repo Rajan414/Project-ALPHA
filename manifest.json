@@ -1,0 +1,19 @@
+{
+  "name": "Antipink",
+  "short_name": "Antipink",
+  "description": "Mobile frontend prototype for a fast media download app.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f4f8fb",
+  "theme_color": "#455ce8",
+  "orientation": "portrait",
+  "share_target": {
+    "action": "/index.html",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

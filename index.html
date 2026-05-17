@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Antipink</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-label="Antipink app prototype">
+      <section class="phone-frame">
+        <div class="status-bar" aria-hidden="true">
+          <span>9:41</span>
+          <div class="system-icons">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <header class="app-header">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img">
+              <defs>
+                <linearGradient id="markGradient" x1="12" x2="52" y1="10" y2="56">
+                  <stop offset="0" stop-color="#08b7d9" />
+                  <stop offset="0.48" stop-color="#495ee8" />
+                  <stop offset="1" stop-color="#e24a86" />
+                </linearGradient>
+              </defs>
+              <path d="M32 4 58 18v28L32 60 6 46V18L32 4Z" fill="url(#markGradient)" />
+              <path d="M25 20v24l20-12-20-12Z" fill="#fff" />
+            </svg>
+          </div>
+          <div>
+            <p class="eyebrow">Antipink</p>
+            <h1>Media downloads</h1>
+          </div>
+          <button class="icon-button" type="button" aria-label="Open notifications">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+          </button>
+        </header>
+
+        <div class="content-scroller">
+          <section class="view is-active" data-view="home" aria-label="Home">
+            <section class="capture-panel" aria-label="Add media link">
+              <div class="capture-art" aria-hidden="true">
+                <span class="ring ring-one"></span>
+                <span class="ring ring-two"></span>
+                <svg viewBox="0 0 220 140">
+                  <rect x="22" y="22" width="124" height="78" rx="14" fill="#172239" />
+                  <rect x="34" y="34" width="100" height="54" rx="10" fill="#243354" />
+                  <path d="M74 49v24l22-12-22-12Z" fill="#50d6cf" />
+                  <rect x="132" y="50" width="62" height="72" rx="18" fill="#f8fafc" />
+                  <rect x="143" y="63" width="40" height="8" rx="4" fill="#d8e0ef" />
+                  <rect x="143" y="78" width="24" height="8" rx="4" fill="#d8e0ef" />
+                  <circle cx="163" cy="105" r="9" fill="#e24a86" />
+                  <path d="M163 99v12M157 105h12" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="url-card">
+                <label for="mediaUrl">Paste shared link</label>
+                <div class="url-entry">
+                  <input id="mediaUrl" type="url" inputmode="url" placeholder="https://video.example/share/..." />
+                  <button class="icon-button filled" id="detectButton" type="button" aria-label="Detect media">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="m9 18 6-6-6-6" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </section>
+
+            <section class="source-strip" aria-label="Quick sources">
+              <button class="source-chip is-selected" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="3" />
+                  <path d="m10 9 5 3-5 3V9Z" />
+                </svg>
+                Video
+              </button>
+              <button class="source-chip" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 18V5l12-2v13" />
+                  <circle cx="6" cy="18" r="3" />
+                  <circle cx="18" cy="16" r="3" />
+                </svg>
+                Music
+              </button>
+              <button class="source-chip" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="3" />
+                  <path d="m3 15 5-5 4 4 2-2 7 7" />
+                </svg>
+                Image
+              </button>
+            </section>
+
+            <section class="media-card" aria-label="Detected media">
+              <div class="media-preview">
+                <div class="preview-gradient"></div>
+                <button class="play-button" type="button" aria-label="Preview media">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8 5v14l11-7L8 5Z" />
+                  </svg>
+                </button>
+                <span class="duration">02:48</span>
+              </div>
+              <div class="media-info">
+                <div>
+                  <p class="section-kicker">Ready</p>
+                  <h2>Shared media detected</h2>
+                </div>
+                <span class="quality-badge">4K</span>
+              </div>
+              <div class="quality-grid" role="list" aria-label="Quality choices">
+                <button class="quality-option is-active" type="button" role="listitem">
+                  <span>4K</span>
+                  <small>2160p</small>
+                </button>
+                <button class="quality-option" type="button" role="listitem">
+                  <span>HD</span>
+                  <small>1080p</small>
+                </button>
+                <button class="quality-option" type="button" role="listitem">
+                  <span>MP3</span>
+                  <small>320kbps</small>
+                </button>
+              </div>
+              <button class="primary-action" id="downloadButton" type="button">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3v12" />
+                  <path d="m7 10 5 5 5-5" />
+                  <path d="M5 21h14" />
+                </svg>
+                Download
+              </button>
+            </section>
+
+            <section class="queue-panel" aria-label="Download queue">
+              <div class="section-heading">
+                <div>
+                  <p class="section-kicker">Queue</p>
+                  <h2>Fast downloads</h2>
+                </div>
+                <button class="text-button" id="clearQueueButton" type="button">Clear</button>
+              </div>
+              <div class="queue-list" id="queueList">
+                <article class="queue-item">
+                  <span class="file-icon video">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="3" y="5" width="18" height="14" rx="3" />
+                      <path d="m10 9 5 3-5 3V9Z" />
+                    </svg>
+                  </span>
+                  <div>
+                    <h3>Travel vlog clip</h3>
+                    <p>1080p MP4 · 62 MB</p>
+                    <div class="progress-track"><span style="width: 68%"></span></div>
+                  </div>
+                  <strong>68%</strong>
+                </article>
+                <article class="queue-item">
+                  <span class="file-icon audio">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M9 18V5l12-2v13" />
+                      <circle cx="6" cy="18" r="3" />
+                      <circle cx="18" cy="16" r="3" />
+                    </svg>
+                  </span>
+                  <div>
+                    <h3>Podcast audio</h3>
+                    <p>320kbps MP3 · complete</p>
+                    <div class="progress-track"><span style="width: 100%"></span></div>
+                  </div>
+                  <strong>Done</strong>
+                </article>
+              </div>
+            </section>
+          </section>
+
+          <section class="view" data-view="share" aria-label="Share receiver">
+            <section class="share-sheet">
+              <div class="share-device" aria-hidden="true">
+                <div class="share-top"></div>
+                <div class="share-thumb"></div>
+                <div class="share-line one"></div>
+                <div class="share-line two"></div>
+                <div class="share-row">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div>
+                <p class="section-kicker">Incoming share</p>
+                <h2>creator_clip.mp4</h2>
+                <p class="muted">Video · 02:48 · 4K, HD, and audio available</p>
+              </div>
+            </section>
+            <div class="permission-list" aria-label="Share flow states">
+              <article>
+                <span>1</span>
+                <div>
+                  <h3>Link</h3>
+                  <p>https://video.example/share/creator-clip</p>
+                </div>
+              </article>
+              <article>
+                <span>2</span>
+                <div>
+                  <h3>Quality</h3>
+                  <p>4K MP4 · 2160p · 128 MB</p>
+                </div>
+              </article>
+              <article>
+                <span>3</span>
+                <div>
+                  <h3>Save to</h3>
+                  <p>Downloads / Antipink</p>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" data-view="library" aria-label="Downloads library">
+            <section class="library-header">
+              <div>
+                <p class="section-kicker">Library</p>
+                <h2>Your saved media</h2>
+              </div>
+              <button class="icon-button" type="button" aria-label="Search library">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
+              </button>
+            </section>
+            <div class="library-grid">
+              <article class="library-item tall">
+                <div class="item-art ocean"></div>
+                <h3>Mountain reel</h3>
+                <p>4K MP4</p>
+              </article>
+              <article class="library-item">
+                <div class="item-art neon"></div>
+                <h3>Cover image</h3>
+                <p>PNG</p>
+              </article>
+              <article class="library-item">
+                <div class="item-art wave"></div>
+                <h3>Music mix</h3>
+                <p>MP3</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="view" data-view="settings" aria-label="Settings">
+            <section class="settings-panel">
+              <p class="section-kicker">Settings</p>
+              <h2>Download preferences</h2>
+              <label class="setting-row">
+                <span>
+                  <strong>High quality first</strong>
+                  <small>Prefer the best available media quality.</small>
+                </span>
+                <input type="checkbox" checked />
+              </label>
+              <label class="setting-row">
+                <span>
+                  <strong>Wi-Fi boost</strong>
+                  <small>Use faster parallel fetching on Wi-Fi.</small>
+                </span>
+                <input type="checkbox" checked />
+              </label>
+              <label class="setting-row">
+                <span>
+                  <strong>Rights reminder</strong>
+                  <small>Keep downloads limited to media you can legally save.</small>
+                </span>
+                <input type="checkbox" checked />
+              </label>
+            </section>
+          </section>
+        </div>
+
+        <nav class="bottom-nav" aria-label="Primary navigation">
+          <button class="nav-item is-active" type="button" data-target="home">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 11 12 4l9 7" />
+              <path d="M5 10v10h14V10" />
+            </svg>
+            <span>Home</span>
+          </button>
+          <button class="nav-item" type="button" data-target="share">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="18" cy="5" r="3" />
+              <circle cx="6" cy="12" r="3" />
+              <circle cx="18" cy="19" r="3" />
+              <path d="m8.6 10.8 6.8-4.6M8.6 13.2l6.8 4.6" />
+            </svg>
+            <span>Share</span>
+          </button>
+          <button class="nav-item" type="button" data-target="library">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 19.5V6a2 2 0 0 1 2-2h14v16H6a2 2 0 0 1-2-2Z" />
+              <path d="M8 8h8M8 12h6" />
+            </svg>
+            <span>Library</span>
+          </button>
+          <button class="nav-item" type="button" data-target="settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 15.5A3.5 3.5 0 1 0 12 8a3.5 3.5 0 0 0 0 7.5Z" />
+              <path d="M19.4 15a1.8 1.8 0 0 0 .36 2l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.8 1.8 0 0 0-2-.36 1.8 1.8 0 0 0-1 1.64V21a2 2 0 0 1-4 0v-.09a1.8 1.8 0 0 0-1-1.64 1.8 1.8 0 0 0-2 .36l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.8 1.8 0 0 0 .36-2 1.8 1.8 0 0 0-1.64-1H3a2 2 0 0 1 0-4h.09a1.8 1.8 0 0 0 1.64-1 1.8 1.8 0 0 0-.36-2l-.06-.06A2 2 0 0 1 7.14 3.9l.06.06a1.8 1.8 0 0 0 2 .36A1.8 1.8 0 0 0 10 2.68V2a2 2 0 0 1 4 0v.09a1.8 1.8 0 0 0 1 1.64 1.8 1.8 0 0 0 2-.36l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.8 1.8 0 0 0-.36 2 1.8 1.8 0 0 0 1.64 1H21a2 2 0 0 1 0 4h-.09a1.8 1.8 0 0 0-1.51 1.1Z" />
+            </svg>
+            <span>Settings</span>
+          </button>
+        </nav>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
